@@ -22,7 +22,7 @@ const Cards = ({ images, imgalt, title, description, price, keyid, product }) =>
   return (
     <>
       <div className="max-w-[280px] group lg:min-h-[400px] max-h-[500px] flex flex-col justify-between p-3 bg-[#f5f5f5] hover:shadow-2xl transition duration-200 relative shadow-md overflow-visible">
-        <div className="bg-fuchsia-200 h-[60%] w-full rounded-md transition-transform duration-300 ease group-hover:-translate-y-6 hover:shadow-[0px_13px_47px_-5px_rgba(226,196,63,0.25),0px_8px_16px_-8px_rgba(180,71,71,0.3)]">
+        <div className="bg-fuchsia-200 h-[60%] lg:min-h-[256px] w-full lg:min-w-[256px] rounded-md transition-transform duration-300 ease group-hover:-translate-y-6 hover:shadow-[0px_13px_47px_-5px_rgba(226,196,63,0.25),0px_8px_16px_-8px_rgba(180,71,71,0.3)]">
           <img className="h-full mx-auto duration-500 cursor-pointer hover:scale-115" src={images} alt={imgalt} />
         </div>
 
