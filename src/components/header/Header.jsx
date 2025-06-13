@@ -154,6 +154,10 @@ const Header = () => {
     };
 
     return (
+    <>
+    <div className="bg-gray-100 p-3 text-center text-md text-gray-800 mb-6">
+  ⚠️ This is a development preview - Not all features are finalized
+</div>
         <header className="sticky top-0 z-50 bg-white shadow-sm">
             {/* Main header */}
             <div className="container mx-auto px-4 py-4">
@@ -553,6 +557,7 @@ const Header = () => {
                 </div>
             )}
         </header>
+        </>
     );
 };
 
