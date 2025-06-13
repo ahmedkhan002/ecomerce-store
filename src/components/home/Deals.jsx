@@ -1,9 +1,7 @@
 import React from 'react'
-import Cat from './cat';
+import Category from './Category'
 
 const Deals = () => {
-
-
 
   return (
     <div className='my-10'>
@@ -13,7 +11,7 @@ const Deals = () => {
         <hr className='w-20 max-sm:w-10 border-1'/>
       
     </div>
-    <Cat />
+    <Category />
     </div>
   )
 }

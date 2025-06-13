@@ -4,7 +4,7 @@ import Cards from './Cards';
 import { ClipLoader } from 'react-spinners';
 
 
-const Cat = () => {
+const Category = () => {
   const { getFilteredProducts } = useAppContext();
 
   const bestseller = 'tops';
@@ -76,4 +76,4 @@ const Cat = () => {
   );
 };
 
-export default Cat;
+export default Category;
