@@ -366,7 +366,7 @@ const Header = () => {
                                             <span className="font-medium">${cartTotal.toFixed(2)}</span>
                                         </div>
                                         <div className="flex space-x-2">
-                                            <a href="/cart" className="flex-1 py-2 border border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 transition-colors">
+                                            <a href="/cart" className="flex-1 py-2 border text-center border-gray-300 text-gray-700 rounded-md font-medium hover:bg-gray-50 transition-colors">
                                                 View Cart
                                             </a>
                                             <button className="flex-1 py-2 bg-fuchsia-600 text-white rounded-md font-medium hover:bg-fuchsia-600 transition-colors">
