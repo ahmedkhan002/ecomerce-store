@@ -47,7 +47,7 @@ const Category = () => {
 
       <div className="mt-8 text-center">
         {loading ? (
-          <div className="flex justify-center items-center h-40">
+          <div className="flex justify-center items-center h-100">
             <ClipLoader size={35} color="#86198f" />
           </div>
         ) : (
