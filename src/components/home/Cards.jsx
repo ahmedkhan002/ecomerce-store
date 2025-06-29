@@ -1,23 +1,25 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useAppContext } from '../../context/Context';
+import { fetchallproducts, fetchByCategory } from '../../store/apidata/apiData';
+import { useSelector, useDispatch } from 'react-redux';
+import { addtocart, addtowishlist } from '../../store/cart/productSlice';
+
 
 const Cards = ({ images, imgalt, title, description, price, keyid, product }) => {
 
 
-  const {setProductid , addToCart, addToWishlist } = useAppContext();
+
+  const dispatch = useDispatch();
+  // const {addtocart, addtowishlist} = useSelector((state) => state.product)
   const [open, setOpen] = useState(false);
 
-    const handleAddToCart = () => {
-    addToCart(product); 
-    setProductid(keyid)
+  const handleAddToCart = () => {
+    dispatch(addtocart(product))
   };
 
   const handleAddToWishlist = () => {
-    addToWishlist(product);
-    setProductid(keyid)
+    dispatch(addtowishlist(product));
   };
-
 
   return (
     <>

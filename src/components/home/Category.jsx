@@ -1,34 +1,33 @@
 import React, { useState, useEffect } from 'react';
-import { useAppContext } from '../../context/Context';
 import Cards from './Cards';
 import { ClipLoader } from 'react-spinners';
+import { fetchallproducts, fetchByCategory } from '../../store/apidata/apiData';
+import { useSelector, useDispatch } from 'react-redux';
 
 
 const Category = () => {
-  const { getFilteredProducts } = useAppContext();
 
   const bestseller = 'tops';
   const newarrive = 'womens-dresses';
   const saleitems = 'mobile-accessories';
 
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products)
+
   const [DefType, SetType] = useState(bestseller);
-  const [products, setproduct] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [product, setproduct] = useState([]);
+
 
   useEffect(() => {
-    async function fetch() {
-      setLoading(true);
-      const data = await getFilteredProducts(null, DefType);
-      setproduct(data || []);
-      setLoading(false);
-    }
+    dispatch(fetchByCategory(DefType))
+  }, [dispatch, DefType])
 
-    fetch();
-  }, [DefType]);
+  useEffect(() => {
+    setproduct(products)
+  }, [products])
 
   const categoryClass = (type) =>
-    `cursor-pointer hover:text-black transition ${
-      DefType === type ? 'text-black font-bold' : 'text-slate-700'
+    `cursor-pointer hover:text-black transition ${DefType === type ? 'text-black font-bold' : 'text-slate-700'
     }`;
 
   return (
@@ -52,12 +51,12 @@ const Category = () => {
           </div>
         ) : (
           <ul className="flex flex-wrap gap-10 justify-center">
-            {products.length === 0 ? (
+            {product.length === 0 ? (
               <p>No products found.</p>
             ) : (
-              products.map((product) => (
+              product.map((product) => (
                 <Cards
-                product={product}
+                  product={product}
                   key={product.id}
                   title={product.title}
                   description={product.description}
@@ -68,7 +67,7 @@ const Category = () => {
                 />
               ))
             )}
-            
+
           </ul>
         )}
       </div>

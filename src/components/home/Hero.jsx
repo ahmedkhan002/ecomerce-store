@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Carousel, ConfigProvider } from 'antd';
 import hero1 from "../../images/home/Hero1.png";
 import hero2 from "../../images/home/Hero2.png";
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchByCategory } from '../../store/apidata/apiData';
+
 
 const Hero = () => {
+
+  const dispatch = useDispatch();
+  const { products, loading, error } = useSelector((state) => state.products);
+
+
+useEffect(() => {
+    const data =  dispatch(fetchByCategory('tops'));
+  
+}, [dispatch]);
+
+// useEffect(() => {
+//   console.log("Fetched products:", products);
+// }, [products]); 
+
   return (
     <ConfigProvider
       theme={{
