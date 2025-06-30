@@ -12,18 +12,18 @@ export const productSlice = createSlice({
         addtocart: (state, action) => {
             const item = state.cartItems.find(i => i.id === action.payload.id);
             if (item) {
-                item.quantity += 1; // increase quantity if already in cart
+                item.quantity += 1; 
             } else {
-                state.cartItems.push({ ...action.payload, quantity: 1 }); // add new with quantity
+                state.cartItems.push({ ...action.payload, quantity: 1 }); 
             }
         },
         removefromcart: (state, action) => {
             const item = state.cartItems.find(i => i.id === action.payload);
             if (item) {
-                if (item.quantity > 1) {
-                    item.quantity -= 1; // reduce quantity
+                if (item.quantity >= 1) {
+                    item.quantity -= 1; 
                 } else {
-                    state.cartItems = state.cartItems.filter(i => i.id !== action.payload); // remove item
+                    state.cartItems = state.cartItems.filter(i => i.id !== action.payload); 
                 }
             }
         },

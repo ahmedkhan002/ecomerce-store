@@ -89,7 +89,7 @@ const Header = () => {
 
     // Handle hover for desktop dropdowns
     const handleMouseEnter = (dropdownId) => {
-        if (window.innerWidth >= 1024) { // Only for desktop
+        if (window.innerWidth >= 1024) { 
             clearTimeout(hoverTimeout);
             setActiveDropdown(dropdownId);
         }
@@ -233,7 +233,7 @@ const Header = () => {
                                     <Heart size={20} />
                                 </button>
                                 {/* Always display wishlist count from context state */}
-                                <span className="absolute -top-2 -right-2 bg-fuchsia-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                <span onClick={() => toggleDropdown('wishlist')} className="absolute cursor-pointer -top-2 -right-2 bg-fuchsia-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                                     {wishlistItems.length}
                                 </span>
 
@@ -241,7 +241,7 @@ const Header = () => {
                                 {activeDropdown === 'wishlist' && (
                                     <div
                                         ref={dropdownRef}
-                                        className="absolute right-0 mt-2 w-80 bg-white shadow-lg rounded-md py-4 z-50"
+                                        className="absolute max-sm:-right-22 right-0 mt-2 w-80 bg-white shadow-lg rounded-md py-4 z-50"
                                     >
                                         <div className="px-4 py-2 border-b border-gray-100 flex justify-between items-center">
                                             <h3 className="font-semibold text-gray-900">Wishlist : {wishlistItems?.length}</h3>
@@ -296,7 +296,7 @@ const Header = () => {
                                     <ShoppingCart size={20} />
                                 </button>
 
-                                <span className="absolute -top-2 -right-2 bg-fuchsia-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                                <span onClick={() => toggleDropdown('cart')} className="absolute cursor-pointer -top-2 -right-2 bg-fuchsia-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
                                     {cartItems.length}
                                 </span>
 
@@ -304,7 +304,7 @@ const Header = () => {
                                 {activeDropdown === 'cart' && (
                                     <div
                                         ref={dropdownRef}
-                                        className="absolute right-0 mt-2 w-80 bg-white shadow-lg rounded-md py-4 z-50"
+                                        className="absolute max-sm:-right-12 right-0 mt-2 w-80 bg-white shadow-lg rounded-md py-4 z-50"
                                     >
                                         <div className="px-4 py-2 border-b border-gray-100 flex justify-between items-center">
                                             <h3 className="font-semibold text-gray-900">Cart : {cartItems?.length}</h3>
